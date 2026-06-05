@@ -47,142 +47,104 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-        .nav-item.active { background-color: #1e293b; border-left: 4px solid #3b82f6; color: white; }
-        .nav-item { border-left: 4px solid transparent; transition: all 0.2s; }
-        .nav-item:hover:not(.active) { background-color: #1e293b; }
+        .nav-item.active { background-color: #3b82f6; color: white; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .nav-item { transition: all 0.2s; color: #94a3b8; }
+        .nav-item:hover:not(.active) { background-color: #334155; color: white; }
     </style>
 </head>
-<body class="flex h-screen overflow-hidden text-slate-800 antialiased">
-
-    <!-- Sidebar -->
-    <aside class="w-72 bg-brand-950 text-slate-300 flex flex-col shadow-xl z-20 flex-shrink-0">
-        <div class="p-6 border-b border-slate-800">
-            <h1 class="text-xl font-bold text-white flex items-center gap-3">
-                <i class="fa-solid fa-shield-halved text-blue-500"></i>
-                Ciberseguridad
-            </h1>
-            <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">Reporte de Phishing</p>
-        </div>
-
-        <div class="overflow-y-auto flex-grow py-4 custom-scrollbar">
-            <!-- Campaña 1 -->
-            <div class="px-4 mb-2">
-                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Campaña 1: Gratificación</span>
-            </div>
-            <nav class="flex flex-col mb-6 space-y-1">
-                <button onclick="loadView('5.1')" id="nav-5-1" class="nav-item active text-left px-6 py-3 text-sm font-medium flex items-center gap-3">
-                    <i class="fa-regular fa-envelope-open w-4 text-center"></i> 5.1 Aperturas
-                </button>
-                <button onclick="loadView('5.2')" id="nav-5-2" class="nav-item text-left px-6 py-3 text-sm font-medium flex items-center gap-3">
-                    <i class="fa-solid fa-arrow-pointer w-4 text-center"></i> 5.2 Clics en Enlace
-                </button>
-                <button onclick="loadView('5.3')" id="nav-5-3" class="nav-item text-left px-6 py-3 text-sm font-medium flex items-center gap-3 text-red-400 hover:text-red-300">
-                    <i class="fa-solid fa-skull-crossbones w-4 text-center"></i> 5.3 Credenciales
-                </button>
-            </nav>
-
-            <!-- Campaña 2 -->
-            <div class="px-4 mb-2">
-                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Campaña 2: Outlook</span>
-            </div>
-            <nav class="flex flex-col space-y-1">
-                <button onclick="loadView('6.1')" id="nav-6-1" class="nav-item text-left px-6 py-3 text-sm font-medium flex items-center gap-3">
-                    <i class="fa-regular fa-envelope-open w-4 text-center"></i> 6.1 Aperturas
-                </button>
-                <button onclick="loadView('6.2')" id="nav-6-2" class="nav-item text-left px-6 py-3 text-sm font-medium flex items-center gap-3">
-                    <i class="fa-solid fa-arrow-pointer w-4 text-center"></i> 6.2 Clics en Enlace
-                </button>
-                <button onclick="loadView('6.3')" id="nav-6-3" class="nav-item text-left px-6 py-3 text-sm font-medium flex items-center gap-3 text-red-400 hover:text-red-300">
-                    <i class="fa-solid fa-skull-crossbones w-4 text-center"></i> 6.3 Credenciales
-                </button>
-            </nav>
-        </div>
-    </aside>
+<body class="flex flex-col h-screen overflow-hidden text-slate-800 antialiased">
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50">
+    <main class="flex-1 flex flex-col overflow-hidden bg-slate-300 items-center justify-center p-4 sm:p-6 lg:p-8">
         
-        <!-- Headerbar -->
-        <header class="bg-white shadow-sm border-b border-slate-200 px-8 py-5 flex items-center justify-between flex-shrink-0 z-10">
-            <div>
-                <p id="view-campaign" class="text-sm font-semibold text-brand-500 mb-1">Campaña 1 – Temática Gratificación (TuRecibo)</p>
-                <h2 id="view-title" class="text-2xl font-bold text-slate-800">5.1. Usuarios que abrieron el correo</h2>
-            </div>
-            <div class="bg-slate-100 p-2 rounded-lg text-slate-500">
-                <i class="fa-solid fa-calendar-days ml-1"></i>
-            </div>
-        </header>
-
-        <!-- Dashboard Body -->
-        <div class="flex-1 overflow-y-auto p-8 custom-scrollbar fade-in" id="dashboard-content">
+        <!-- Contenedor Diapositiva PowerPoint (16:9) -->
+        <div class="bg-slate-50 w-full max-w-[1600px] aspect-video max-h-full shadow-2xl rounded-2xl flex flex-col overflow-hidden relative border border-slate-300">
             
-            <!-- Alert Banner (Dinámico) -->
-            <div id="alert-container" class="hidden mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg shadow-sm">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <i class="fa-solid fa-triangle-exclamation text-red-500 mt-0.5"></i>
-                    </div>
-                    <div class="ml-3">
-                        <h3 class="text-sm font-bold text-red-800">ALERTA DE SEGURIDAD</h3>
-                        <p id="alert-text" class="text-sm text-red-700 mt-1"></p>
-                    </div>
+            <!-- Headerbar -->
+            <header class="bg-white shadow-sm border-b border-slate-200 px-8 py-5 flex items-center justify-between flex-shrink-0 z-10">
+                <div>
+                    <p id="view-campaign" class="text-base font-bold text-brand-600 mb-1">Campaña 1 – Temática Gratificación (TuRecibo)</p>
+                    <h2 id="view-title" class="text-3xl font-extrabold text-slate-800">5.1. Usuarios que abrieron el correo</h2>
                 </div>
-            </div>
+                <div class="bg-brand-50 p-3 rounded-lg text-brand-600 border border-brand-100">
+                    <i class="fa-solid fa-desktop text-2xl"></i>
+                </div>
+            </header>
 
-            <!-- KPIs -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <!-- KPI 1 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">Total Usuarios Afectados</p>
-                        <p id="kpi-total" class="text-3xl font-bold text-slate-800 mt-1">0</p>
-                    </div>
-                    <div class="h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 text-xl">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                </div>
-                <!-- KPI 2 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">Nivel de Severidad</p>
-                        <p id="kpi-severity" class="text-xl font-bold mt-1 uppercase tracking-wide">Bajo</p>
-                    </div>
-                    <div id="kpi-severity-icon" class="h-12 w-12 rounded-full flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-shield"></i>
-                    </div>
-                </div>
-                <!-- KPI 3 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
-                    <div>
-                        <p class="text-sm font-medium text-slate-500">Acción Registrada</p>
-                        <p id="kpi-action" class="text-lg font-bold text-slate-800 mt-1">Apertura</p>
-                    </div>
-                    <div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 text-xl">
-                        <i class="fa-solid fa-laptop-medical"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chart & Table Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Dashboard Body -->
+            <div class="flex-1 overflow-hidden p-6 lg:p-8 flex flex-col fade-in bg-slate-50" id="dashboard-content">
                 
-                <!-- Chart Area -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 flex flex-col">
-                    <h3 class="text-sm font-bold text-slate-800 mb-4 uppercase tracking-wider border-b pb-2">Impacto por Gerencia</h3>
-                    <div class="flex-grow flex items-center justify-center relative min-h-[250px]">
-                        <canvas id="gerenciaChart"></canvas>
+                <!-- Top Section: Alerta, KPIs y Gráfico (Esquina Fija) -->
+                <div class="flex flex-col lg:flex-row gap-6 mb-6 flex-shrink-0">
+                    
+                    <!-- Left: Alert & KPIs -->
+                    <div class="flex-1 flex flex-col justify-center">
+                        <!-- Alert Banner (Dinámico) -->
+                        <div id="alert-container" class="hidden mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg shadow-sm">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fa-solid fa-triangle-exclamation text-red-500 mt-0.5"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-bold text-red-800">ALERTA DE SEGURIDAD</h3>
+                                    <p id="alert-text" class="text-sm text-red-700 mt-1"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KPIs -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 flex-1">
+                            <!-- KPI 1 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-slate-500">Total Usuarios Afectados</p>
+                                    <p id="kpi-total" class="text-3xl font-bold text-slate-800 mt-1">0</p>
+                                </div>
+                                <div class="h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 text-xl">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                            </div>
+                            <!-- KPI 2 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-slate-500">Nivel de Severidad</p>
+                                    <p id="kpi-severity" class="text-xl font-bold mt-1 uppercase tracking-wide">Bajo</p>
+                                </div>
+                                <div id="kpi-severity-icon" class="h-12 w-12 rounded-full flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield"></i>
+                                </div>
+                            </div>
+                            <!-- KPI 3 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-medium text-slate-500">Acción Registrada</p>
+                                    <p id="kpi-action" class="text-lg font-bold text-slate-800 mt-1">Apertura</p>
+                                </div>
+                                <div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 text-xl">
+                                    <i class="fa-solid fa-laptop-medical"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Chart Area (Esquina Fija) -->
+                    <div class="w-full lg:w-[350px] xl:w-[450px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex flex-col">
+                        <h3 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wider border-b pb-2">Impacto por Gerencia</h3>
+                        <div class="flex-grow flex items-center justify-center relative min-h-[160px] xl:min-h-[180px]">
+                            <canvas id="gerenciaChart"></canvas>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Table Area -->
-                <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col overflow-hidden">
-                    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                        <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Detalle de Usuarios</h3>
-                        <span id="table-subtitle" class="text-xs text-slate-500 font-medium"></span>
+                <!-- Bottom Section: Table Area (Hacia abajo, scroll interno) -->
+                <div class="flex-1 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-0 overflow-hidden">
+                    <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-100 flex-shrink-0">
+                        <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wider">Detalle de Usuarios</h3>
+                        <span id="table-subtitle" class="text-sm text-slate-600 font-bold bg-white px-3 py-1 rounded-full border border-slate-200"></span>
                     </div>
-                    <div class="overflow-x-auto custom-scrollbar flex-grow">
+                    <div class="overflow-y-auto overflow-x-auto custom-scrollbar flex-1 relative">
                         <table class="w-full text-left border-collapse">
-                            <thead class="bg-slate-50 border-b border-slate-200">
+                            <thead class="bg-slate-100 border-b border-slate-200 sticky top-0 z-10 shadow-sm">
                                 <tr id="table-headers">
                                     <!-- Headers generados dinámicamente -->
                                 </tr>
@@ -197,6 +159,47 @@
             </div>
         </div>
     </main>
+
+    <!-- Bottom Navigation (Nueva Barra Inferior) -->
+    <nav class="bg-brand-950 text-slate-300 w-full flex-shrink-0 z-20 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.2)] border-t border-slate-800">
+        <div class="max-w-[1600px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 py-3 sm:py-4">
+            
+            <!-- Branding -->
+            <div class="hidden md:flex items-center gap-3 pr-6 border-r border-slate-700">
+                <i class="fa-solid fa-shield-halved text-blue-500 text-2xl"></i>
+                <div>
+                    <h1 class="text-sm font-bold text-white leading-tight">Ciberseguridad</h1>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Reporte de Phishing</p>
+                </div>
+            </div>
+
+            <!-- Botones de Navegación -->
+            <div class="flex flex-1 w-full justify-center lg:justify-start items-center gap-4 lg:gap-8 overflow-x-auto custom-scrollbar pb-2 sm:pb-0">
+                <!-- Campaña 1 -->
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-400 uppercase whitespace-nowrap hidden xl:block">Campaña 1: Gratificación</span>
+                    <div class="flex bg-slate-800 rounded-lg p-1 gap-1 shadow-inner border border-slate-700">
+                        <button onclick="loadView('5.1')" id="nav-5-1" class="nav-item active px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-regular fa-envelope-open"></i> 5.1 Aperturas</button>
+                        <button onclick="loadView('5.2')" id="nav-5-2" class="nav-item px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-arrow-pointer"></i> 5.2 Clics</button>
+                        <button onclick="loadView('5.3')" id="nav-5-3" class="nav-item px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-skull-crossbones text-red-400"></i> 5.3 Credenciales</button>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block w-px h-8 bg-slate-700"></div>
+
+                <!-- Campaña 2 -->
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-bold text-slate-400 uppercase whitespace-nowrap hidden xl:block">Campaña 2: Outlook</span>
+                    <div class="flex bg-slate-800 rounded-lg p-1 gap-1 shadow-inner border border-slate-700">
+                        <button onclick="loadView('6.1')" id="nav-6-1" class="nav-item px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-regular fa-envelope-open"></i> 6.1 Aperturas</button>
+                        <button onclick="loadView('6.2')" id="nav-6-2" class="nav-item px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-arrow-pointer"></i> 6.2 Clics</button>
+                        <button onclick="loadView('6.3')" id="nav-6-3" class="nav-item px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-md flex items-center gap-2 whitespace-nowrap"><i class="fa-solid fa-skull-crossbones text-red-400"></i> 6.3 Credenciales</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
 
     <script>
         // === BASE DE DATOS LOCAL ===
@@ -449,27 +452,27 @@
 
             // Headers
             viewData.columns.forEach(col => {
-                thead.innerHTML += `<th class="px-5 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">${col}</th>`;
+                thead.innerHTML += `<th class="px-5 py-4 text-sm font-extrabold text-slate-600 uppercase tracking-wider bg-slate-100">${col}</th>`;
             });
 
             // Body
             viewData.data.forEach(row => {
-                let htmlRow = `<tr class="hover:bg-slate-50 transition-colors duration-150">`;
+                let htmlRow = `<tr class="hover:bg-slate-50 transition-colors duration-150 border-b border-slate-50">`;
                 
                 // Col 1: Nombre + Subtexto (ID/Correo)
                 let ident = row.id !== "-" ? row.id : "Sin correo registrado";
                 htmlRow += `
-                    <td class="px-5 py-3 whitespace-nowrap">
-                        <div class="text-sm font-semibold text-slate-800">${row.nombre}</div>
-                        <div class="text-xs text-slate-500">${ident}</div>
+                    <td class="px-5 py-4 whitespace-nowrap">
+                        <div class="text-base font-bold text-slate-800">${row.nombre}</div>
+                        <div class="text-sm font-medium text-slate-500">${ident}</div>
                     </td>
                 `;
 
                 // Col 2: Contraseña (Solo si existe en las columnas)
                 if (viewData.columns.includes("Contraseña")) {
                     htmlRow += `
-                        <td class="px-5 py-3 whitespace-nowrap">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-red-100 text-red-700 border border-red-200">
+                        <td class="px-5 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1.5 rounded-md text-sm font-mono font-bold bg-red-100 text-red-700 border border-red-200 shadow-sm">
                                 <i class="fa-solid fa-key mr-1"></i>${row.pass}
                             </span>
                         </td>
@@ -478,8 +481,8 @@
 
                 // Col 3: Gerencia (Pill Badge style)
                 htmlRow += `
-                    <td class="px-5 py-3 whitespace-nowrap">
-                        <span class="px-2.5 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                    <td class="px-5 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1.5 inline-flex text-sm leading-5 font-bold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                             ${row.gerencia}
                         </span>
                     </td>
@@ -487,7 +490,7 @@
 
                 // Col 4: Cargo
                 htmlRow += `
-                    <td class="px-5 py-3 text-sm text-slate-600 truncate max-w-[200px]" title="${row.cargo}">
+                    <td class="px-5 py-4 text-base font-medium text-slate-600 truncate max-w-[250px]" title="${row.cargo}">
                         ${row.cargo}
                     </td>
                 `;
@@ -515,9 +518,18 @@
                 currentChart.destroy();
             }
 
-            // Paleta de colores dinámica
+            // Paleta de colores distintivos y vibrantes
             const colors = [
-                '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#818cf8', '#a5b4fc', '#e0e7ff'
+                '#2563eb', // Azul
+                '#ea580c', // Naranja
+                '#16a34a', // Verde
+                '#9333ea', // Morado
+                '#dc2626', // Rojo
+                '#ca8a04', // Amarillo
+                '#0d9488', // Teal
+                '#db2777', // Rosa
+                '#475569', // Pizarra
+                '#65a30d'  // Lima
             ];
 
             currentChart = new Chart(ctx, {
@@ -534,19 +546,22 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '65%',
+                    cutout: '55%',
                     plugins: {
                         legend: {
-                            position: 'bottom',
+                            position: 'right',
                             labels: {
-                                padding: 15,
+                                padding: 10,
+                                boxWidth: 12,
                                 usePointStyle: true,
-                                font: { size: 10, family: "'Inter', sans-serif" }
+                                font: { size: 10, family: "'Inter', sans-serif", weight: 'bold' }
                             }
                         },
                         tooltip: {
                             backgroundColor: '#1e293b',
-                            padding: 10,
+                            padding: 12,
+                            titleFont: { size: 14 },
+                            bodyFont: { size: 13 },
                             cornerRadius: 8,
                             callbacks: {
                                 label: function(context) {

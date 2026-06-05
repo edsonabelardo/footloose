@@ -55,13 +55,13 @@
 <body class="flex flex-col h-screen overflow-hidden text-slate-800 antialiased">
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col overflow-hidden bg-slate-300 items-center justify-center p-4 sm:p-6 lg:p-8">
+    <main class="flex-1 flex flex-col overflow-hidden bg-slate-300 items-center justify-center p-2 sm:p-4">
         
         <!-- Contenedor Diapositiva PowerPoint (16:9) -->
         <div class="bg-slate-50 w-full max-w-[1600px] aspect-video max-h-full shadow-2xl rounded-2xl flex flex-col overflow-hidden relative border border-slate-300">
             
             <!-- Headerbar -->
-            <header class="bg-white shadow-sm border-b border-slate-200 px-8 py-5 flex items-center justify-between flex-shrink-0 z-10">
+            <header class="bg-white shadow-sm border-b border-slate-200 px-6 py-4 flex items-center justify-between flex-shrink-0 z-10">
                 <div>
                     <p id="view-campaign" class="text-base font-bold text-brand-600 mb-1">Campaña 1 – Temática Gratificación (TuRecibo)</p>
                     <h2 id="view-title" class="text-3xl font-extrabold text-slate-800">5.1. Usuarios que abrieron el correo</h2>
@@ -72,15 +72,15 @@
             </header>
 
             <!-- Dashboard Body -->
-            <div class="flex-1 overflow-hidden p-6 lg:p-8 flex flex-col fade-in bg-slate-50" id="dashboard-content">
+            <div class="flex-1 overflow-hidden p-4 lg:p-5 flex flex-col fade-in bg-slate-50" id="dashboard-content">
                 
                 <!-- Top Section: Alerta, KPIs y Gráfico (Esquina Fija) -->
-                <div class="flex flex-col lg:flex-row gap-6 mb-6 flex-shrink-0">
+                <div class="flex flex-col lg:flex-row gap-4 mb-4 flex-shrink-0">
                     
                     <!-- Left: Alert & KPIs -->
                     <div class="flex-1 flex flex-col justify-center">
                         <!-- Alert Banner (Dinámico) -->
-                        <div id="alert-container" class="hidden mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg shadow-sm">
+                        <div id="alert-container" class="hidden mb-4 bg-red-50 border-l-4 border-red-500 p-3 rounded-r-lg shadow-sm">
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <i class="fa-solid fa-triangle-exclamation text-red-500 mt-0.5"></i>
@@ -93,34 +93,34 @@
                         </div>
 
                         <!-- KPIs -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 flex-1">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
                             <!-- KPI 1 -->
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-slate-500">Total Usuarios Afectados</p>
-                                    <p id="kpi-total" class="text-3xl font-bold text-slate-800 mt-1">0</p>
+                                    <p id="kpi-total" class="text-2xl font-bold text-slate-800 mt-1">0</p>
                                 </div>
-                                <div class="h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 text-xl">
+                                <div class="h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 text-lg">
                                     <i class="fa-solid fa-users"></i>
                                 </div>
                             </div>
                             <!-- KPI 2 -->
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-slate-500">Nivel de Severidad</p>
-                                    <p id="kpi-severity" class="text-xl font-bold mt-1 uppercase tracking-wide">Bajo</p>
+                                    <p id="kpi-severity" class="text-lg font-bold mt-1 uppercase tracking-wide">Bajo</p>
                                 </div>
-                                <div id="kpi-severity-icon" class="h-12 w-12 rounded-full flex items-center justify-center text-xl">
+                                <div id="kpi-severity-icon" class="h-10 w-10 rounded-full flex items-center justify-center text-lg">
                                     <i class="fa-solid fa-shield"></i>
                                 </div>
                             </div>
                             <!-- KPI 3 -->
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-5 flex items-center justify-between">
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-slate-500">Acción Registrada</p>
-                                    <p id="kpi-action" class="text-lg font-bold text-slate-800 mt-1">Apertura</p>
+                                    <p id="kpi-action" class="text-base font-bold text-slate-800 mt-1">Apertura</p>
                                 </div>
-                                <div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 text-xl">
+                                <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 text-lg">
                                     <i class="fa-solid fa-laptop-medical"></i>
                                 </div>
                             </div>
@@ -128,9 +128,12 @@
                     </div>
 
                     <!-- Right: Chart Area (Esquina Fija) -->
-                    <div class="w-full lg:w-[350px] xl:w-[450px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex flex-col">
-                        <h3 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wider border-b pb-2">Impacto por Gerencia</h3>
-                        <div class="flex-grow flex items-center justify-center relative min-h-[160px] xl:min-h-[180px]">
+                    <div class="w-full lg:w-[320px] xl:w-[400px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-slate-100 p-3 flex flex-col">
+                        <div class="flex justify-between items-end border-b pb-1 mb-2">
+                            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Impacto por Gerencia</h3>
+                            <span class="text-[10px] bg-slate-100 text-slate-500 font-bold px-2 py-1 rounded-md"><i class="fa-solid fa-hand-pointer mr-1"></i>Clic para filtrar</span>
+                        </div>
+                        <div class="flex-grow flex items-center justify-center relative min-h-[140px] xl:min-h-[150px]">
                             <canvas id="gerenciaChart"></canvas>
                         </div>
                     </div>
@@ -138,13 +141,35 @@
 
                 <!-- Bottom Section: Table Area (Hacia abajo, scroll interno) -->
                 <div class="flex-1 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col min-h-0 overflow-hidden">
-                    <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-100 flex-shrink-0">
-                        <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wider">Detalle de Usuarios</h3>
-                        <span id="table-subtitle" class="text-sm text-slate-600 font-bold bg-white px-3 py-1 rounded-full border border-slate-200"></span>
+                    <div class="p-3 sm:p-4 border-b border-slate-200 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-3 bg-slate-100 flex-shrink-0">
+                        <div class="flex items-center gap-3">
+                            <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wider">Detalle de Usuarios</h3>
+                            <span id="table-subtitle" class="text-sm text-slate-600 font-bold bg-white px-3 py-1 rounded-full border border-slate-200"></span>
+                        </div>
+                        
+                        <!-- Buscador y Filtros -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full xl:w-auto">
+                            <!-- Filtro Activo (Dinámico) -->
+                            <div id="filter-badge-container" class="hidden items-center bg-blue-100 text-blue-700 text-sm font-bold px-3 py-2 rounded-lg border border-blue-200 shadow-sm transition-all">
+                                <i class="fa-solid fa-filter mr-2 text-xs"></i>
+                                <span id="filter-badge-text" class="mr-2">Gerencia</span>
+                                <button onclick="clearGerenciaFilter()" class="hover:bg-blue-200 hover:text-red-500 rounded-full w-5 h-5 flex items-center justify-center transition-colors" title="Quitar filtro">
+                                    <i class="fa-solid fa-xmark text-sm"></i>
+                                </button>
+                            </div>
+
+                            <!-- Buscador -->
+                            <div class="relative w-full sm:w-64 xl:w-80">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <i class="fa-solid fa-search text-slate-400"></i>
+                                </div>
+                                <input type="text" id="searchInput" oninput="handleSearch()" class="bg-white border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 shadow-sm transition-colors" placeholder="Buscar usuario, área, cargo...">
+                            </div>
+                        </div>
                     </div>
-                    <div class="overflow-y-auto overflow-x-auto custom-scrollbar flex-1 relative">
+                    <div class="overflow-y-auto overflow-x-auto custom-scrollbar flex-1 relative bg-white">
                         <table class="w-full text-left border-collapse">
-                            <thead class="bg-slate-100 border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+                            <thead class="bg-slate-50 border-b border-slate-200 sticky top-0 z-10 shadow-sm">
                                 <tr id="table-headers">
                                     <!-- Headers generados dinámicamente -->
                                 </tr>
@@ -153,6 +178,12 @@
                                 <!-- Filas generadas dinámicamente -->
                             </tbody>
                         </table>
+                        
+                        <!-- Mensaje de sin resultados (Oculto por defecto) -->
+                        <div id="no-results-msg" class="hidden flex-col items-center justify-center p-12 text-slate-400">
+                            <i class="fa-solid fa-folder-open text-4xl mb-3"></i>
+                            <p class="text-sm font-medium">No se encontraron resultados para tu búsqueda.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -390,10 +421,18 @@
         };
 
         let currentChart = null;
+        let currentViewId = '5.1';
+        let activeGerenciaFilter = null; // Nueva variable para el filtro del gráfico
 
         function loadView(viewId) {
+            currentViewId = viewId;
             const viewData = db[viewId];
             if(!viewData) return;
+
+            // Resetear el buscador y filtro
+            document.getElementById('searchInput').value = '';
+            activeGerenciaFilter = null;
+            updateFilterBadge();
 
             // 1. Actualizar Navegación activa
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
@@ -408,7 +447,7 @@
             // 3. Actualizar Textos y Cabeceras
             document.getElementById('view-campaign').innerText = viewData.campaign;
             document.getElementById('view-title').innerText = viewData.title;
-            document.getElementById('table-subtitle').innerText = `${viewData.data.length} registros`;
+            // El subtitulo se actualiza ahora en la función renderTable
 
             // 4. Actualizar Alerta
             const alertBox = document.getElementById('alert-container');
@@ -443,36 +482,94 @@
             renderChart(viewData.data);
         }
 
-        function renderTable(viewData) {
+        // Función que maneja el evento de escritura en la barra de búsqueda
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const viewData = db[currentViewId];
+            renderTable(viewData, searchTerm);
+        }
+
+        // Función para actualizar la UI del "botoncito" de filtro
+        function updateFilterBadge() {
+            const container = document.getElementById('filter-badge-container');
+            const text = document.getElementById('filter-badge-text');
+            if (activeGerenciaFilter) {
+                text.innerText = activeGerenciaFilter;
+                container.classList.remove('hidden');
+                container.classList.add('flex');
+            } else {
+                container.classList.add('hidden');
+                container.classList.remove('flex');
+            }
+        }
+
+        // Función para limpiar el filtro al hacer clic en la X
+        function clearGerenciaFilter() {
+            activeGerenciaFilter = null;
+            updateFilterBadge();
+            handleSearch(); // Recargar la tabla
+        }
+
+        function renderTable(viewData, searchTerm = '') {
             const thead = document.getElementById('table-headers');
             const tbody = document.getElementById('table-body');
+            const noResultsMsg = document.getElementById('no-results-msg');
             
             thead.innerHTML = '';
             tbody.innerHTML = '';
 
             // Headers
             viewData.columns.forEach(col => {
-                thead.innerHTML += `<th class="px-5 py-4 text-sm font-extrabold text-slate-600 uppercase tracking-wider bg-slate-100">${col}</th>`;
+                thead.innerHTML += `<th class="px-4 py-3 text-xs sm:text-sm font-extrabold text-slate-600 uppercase tracking-wider bg-slate-50">${col}</th>`;
             });
 
+            // Filtrar data
+            let rowsToRender = viewData.data;
+
+            // 1er Filtro: Por Gerencia (si se hizo clic en el gráfico)
+            if (activeGerenciaFilter) {
+                rowsToRender = rowsToRender.filter(row => row.gerencia === activeGerenciaFilter);
+            }
+
+            // 2do Filtro: Por Buscador de texto
+            if (searchTerm.trim() !== '') {
+                rowsToRender = rowsToRender.filter(row => {
+                    // Combinamos todos los valores de la fila en un solo texto para buscar en él
+                    const searchableText = Object.values(row).join(' ').toLowerCase();
+                    return searchableText.includes(searchTerm);
+                });
+            }
+
+            // Actualizar contador de registros
+            document.getElementById('table-subtitle').innerText = `${rowsToRender.length} registros`;
+
+            // Mostrar u ocultar mensaje de "No hay resultados"
+            if (rowsToRender.length === 0) {
+                noResultsMsg.classList.remove('hidden');
+                noResultsMsg.classList.add('flex');
+            } else {
+                noResultsMsg.classList.add('hidden');
+                noResultsMsg.classList.remove('flex');
+            }
+
             // Body
-            viewData.data.forEach(row => {
-                let htmlRow = `<tr class="hover:bg-slate-50 transition-colors duration-150 border-b border-slate-50">`;
+            rowsToRender.forEach(row => {
+                let htmlRow = `<tr class="hover:bg-slate-50 transition-colors duration-150 border-b border-slate-100">`;
                 
                 // Col 1: Nombre + Subtexto (ID/Correo)
                 let ident = row.id !== "-" ? row.id : "Sin correo registrado";
                 htmlRow += `
-                    <td class="px-5 py-4 whitespace-nowrap">
-                        <div class="text-base font-bold text-slate-800">${row.nombre}</div>
-                        <div class="text-sm font-medium text-slate-500">${ident}</div>
+                    <td class="px-4 py-3 whitespace-nowrap">
+                        <div class="text-sm sm:text-base font-bold text-slate-800">${row.nombre}</div>
+                        <div class="text-xs sm:text-sm font-medium text-slate-500">${ident}</div>
                     </td>
                 `;
 
                 // Col 2: Contraseña (Solo si existe en las columnas)
                 if (viewData.columns.includes("Contraseña")) {
                     htmlRow += `
-                        <td class="px-5 py-4 whitespace-nowrap">
-                            <span class="px-3 py-1.5 rounded-md text-sm font-mono font-bold bg-red-100 text-red-700 border border-red-200 shadow-sm">
+                        <td class="px-4 py-3 whitespace-nowrap">
+                            <span class="px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-mono font-bold bg-red-100 text-red-700 border border-red-200 shadow-sm">
                                 <i class="fa-solid fa-key mr-1"></i>${row.pass}
                             </span>
                         </td>
@@ -481,8 +578,8 @@
 
                 // Col 3: Gerencia (Pill Badge style)
                 htmlRow += `
-                    <td class="px-5 py-4 whitespace-nowrap">
-                        <span class="px-3 py-1.5 inline-flex text-sm leading-5 font-bold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                    <td class="px-4 py-3 whitespace-nowrap">
+                        <span class="px-2 py-1 sm:px-3 sm:py-1.5 inline-flex text-xs sm:text-sm leading-5 font-bold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
                             ${row.gerencia}
                         </span>
                     </td>
@@ -490,7 +587,7 @@
 
                 // Col 4: Cargo
                 htmlRow += `
-                    <td class="px-5 py-4 text-base font-medium text-slate-600 truncate max-w-[250px]" title="${row.cargo}">
+                    <td class="px-4 py-3 text-xs sm:text-sm font-medium text-slate-600 truncate max-w-[250px]" title="${row.cargo}">
                         ${row.cargo}
                     </td>
                 `;
@@ -547,6 +644,22 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     cutout: '55%',
+                    onClick: (event, elements, chart) => {
+                        // Detectar clic en una porción del gráfico
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const clickedGerencia = chart.data.labels[index];
+                            
+                            // Establecer filtro y actualizar UI
+                            activeGerenciaFilter = clickedGerencia;
+                            updateFilterBadge();
+                            handleSearch();
+                        }
+                    },
+                    onHover: (event, chartElement) => {
+                        // Cambiar cursor a "manito" si está sobre un color
+                        event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                    },
                     plugins: {
                         legend: {
                             position: 'right',
